@@ -9,6 +9,9 @@ import { toast } from 'react-hot-toast';
 function Cart() {
 
     const [products, setProducts] = useState([]);
+    const initialPrice = 0;
+    const pricesOfProducts = products.map(product => product.price)
+    const totalPrice = pricesOfProducts.reduce((previousValue, currentValue) => previousValue + parseInt(currentValue), initialPrice)
     
     const getShoppingCartProducts = async () => {
         const newProducts = await getProducts()
@@ -45,7 +48,7 @@ function Cart() {
             {products.length > 0 ? <div className='flex flex-col items-center mt-10'>
                 <h1 className='font-bold text-5xl '>Your Shopping Cart</h1>
                 <button onClick={handleCheckout} className="mt-10 px-12 py-5 bg-white rounded-3xl text-gray-800 border-black border-2 font-bold text-xl leading-tight shadow-md hover:bg-black hover:text-white transition duration-500 ease-in-out">
-                    Buy All Products Now
+                    Buy All Products For ${totalPrice}
                 </button>
                 <div className='p-10 gap-20'>
                     {products.map(product => (
