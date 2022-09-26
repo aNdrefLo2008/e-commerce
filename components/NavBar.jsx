@@ -31,8 +31,8 @@ function NavBar() {
 
 
   return (
-    <div>
-      <div className='flex flex-col'>
+    <div className='sticky top-0 bg-white'>
+      <div className='flex flex-col w-full'>
         <div className='bg-black text-[#FBF8FF] text-center font-medium py-2 px-4'>
         Get free delivery on orders over $100
       </div>
@@ -115,10 +115,10 @@ function NavBar() {
       </div>
 
       <div>
-        <div className={`${!icon ? 'flex' : 'hidden'} sm:hidden justify-center items-center flex-col p-6 bg-gray-100 absolute top-36 left-0 mx-2  min-w-[140px] rounded-xl sidebar`}>
+        <div className={`${!icon ? 'flex' : 'hidden'} sidebar sm:hidden justify-center items-center flex-col p-6 bg-gray-300 absolute top-36 left-0 mx-2  min-w-[140px] rounded-xl sidebar`}>
             <ul className='list-none flex justify-end items-center flex-1 flex-col'>
               {categories.map((category) => (
-                <li key={category.id} className={`font-medium cursor-pointer text-[18px] hover:text-blue-600 mr-0 mb-4`}>
+                <li key={category.id} className={`font-medium cursor-pointer text-black text-[18px] hover:text-blue-600 mr-0 mb-4`}>
                     <Link href={`/category/${category.slug}`}>{category.categoryTitle}</Link>
                   </li>
               ))}
