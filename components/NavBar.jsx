@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { GetCategories, getProducts } from '../services'
 import Link from 'next/link'
 
+
 function NavBar() {
   const [ icon, setIcon ] = useState(true)
   const [ searchBar, setSearchBar ] = useState(false)
@@ -37,10 +38,12 @@ function NavBar() {
         Get free delivery on orders over $100
       </div>
       <div className='flex flex-row justify-between px-4 border-b text-[#1D1A27]'>
-        {icon ? <Bars3Icon width="25px" className='sm:hidden block cursor-pointer' onClick={() => {
+        {icon ? 
+        <Bars3Icon width="25px" height="25px" className='mt-6 rounded-xl sm:hidden block cursor-pointer' onClick={() => {
           setIcon(prev => !prev)
-        }}/> : 
-        <XMarkIcon width="30px" className='sm:hidden block cursor-pointer' onClick={() => {
+        }}/>
+        : 
+        <XMarkIcon width="30px" className='rounded-xl sm:hidden block cursor-pointer' onClick={() => {
           setIcon(prev => !prev)
         }}/>}
           
@@ -64,7 +67,7 @@ function NavBar() {
                   setSearchBarProductsValue(searchBarProducts)
                   setSearchBarArrays(true)
                 }}
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8 text-gray-400 hover:text-gray-600 mt-6 cursor-pointer">
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 24" strokeWidth={1.5} stroke="currentColor" className="mt-6 w-8 h-8 text-gray-400 hover:text-gray-600 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
               <input type="text"
@@ -115,10 +118,10 @@ function NavBar() {
       </div>
 
       <div>
-        <div className={`${!icon ? 'flex' : 'hidden'} sidebar sm:hidden justify-center items-center flex-col p-6 bg-gray-300 absolute top-36 left-0 mx-2  min-w-[140px] rounded-xl sidebar`}>
+        <div className={`${!icon ? 'flex' : 'hidden'} border-x border-b sm:hidden justify-center items-center flex-col p-6 bg-white top-36 left-0 rounded-b-xl`}>
             <ul className='list-none flex justify-end items-center flex-1 flex-col'>
               {categories.map((category) => (
-                <li key={category.id} className={`font-medium cursor-pointer text-black text-[18px] hover:text-blue-600 mr-0 mb-4`}>
+                <li key={category.id} className={` font-medium cursor-pointer text-[18px] hover:text-blue-600 mb-4`}>
                     <Link href={`/category/${category.slug}`}>{category.categoryTitle}</Link>
                   </li>
               ))}
