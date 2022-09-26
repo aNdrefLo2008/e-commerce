@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar'
 
 export default function Home() {
 
+  console.log('Hello')
+
   return (
     <div className='flex flex-col'>
       <Head>
